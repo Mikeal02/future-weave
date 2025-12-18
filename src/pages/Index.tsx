@@ -135,7 +135,7 @@ export default function Index() {
             {/* Run Simulation Button */}
             <div className="flex justify-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
               <Button 
-                variant="hero" 
+                variant="accent"
                 size="xl" 
                 onClick={runSimulation}
                 disabled={!canSimulate || isSimulating}
