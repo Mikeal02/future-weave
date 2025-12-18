@@ -8,6 +8,7 @@ import { NarrativePanel } from "@/components/NarrativePanel";
 import { DailyMicroRegret } from "@/components/DailyMicroRegret";
 import { AlternateReality } from "@/components/AlternateReality";
 import { ShareableCard } from "@/components/ShareableCard";
+import { BehavioralAnalysis, type BehavioralAnalysisData } from "@/components/BehavioralAnalysis";
 import { Button } from "@/components/ui/button";
 import { 
   calculateOutcomes, 
@@ -20,7 +21,9 @@ import {
   type DecisionSliders as DecisionSlidersType,
   type SimulationResult
 } from "@/lib/simulator";
+import { fetchBehavioralAnalysis } from "@/lib/behavioralAnalysis";
 import { Play, RotateCcw, Sparkles } from "lucide-react";
+import { toast } from "sonner";
 
 const defaultSliders: DecisionSlidersType = {
   careerFocus: 50,
@@ -43,12 +46,15 @@ export default function Index() {
     year30: '',
     finalReflection: '',
   });
+  const [behavioralAnalysis, setBehavioralAnalysis] = useState<BehavioralAnalysisData | null>(null);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
 
   const runSimulation = useCallback(async () => {
     if (!lifePath) return;
     
     setIsSimulating(true);
     setActiveYear(0);
+    setBehavioralAnalysis(null);
     
     // Calculate outcomes
     const outcomes = calculateOutcomes(lifePath, sliders);
@@ -57,9 +63,7 @@ export default function Index() {
     const archetype = generateArchetype(lifePath, outcomes, regret);
     const dailyMicroRegret = generateDailyMicroRegret(lifePath, sliders);
     
-    // Generate narratives (simulated - in production this would call AI)
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
+    // Generate narratives
     const generatedNarratives = generateLocalNarratives(lifePath, sliders, outcomes, regret, archetype);
     
     setNarratives(generatedNarratives);
@@ -80,6 +84,24 @@ export default function Index() {
     
     setIsSimulating(false);
     setActiveYear(5);
+    
+    // Fetch AI behavioral analysis in background
+    setIsAnalyzing(true);
+    try {
+      const analysis = await fetchBehavioralAnalysis({
+        lifePath,
+        sliders,
+        timelineHorizon: 5,
+        regret,
+        outcomes,
+      });
+      setBehavioralAnalysis(analysis);
+    } catch (error) {
+      console.error("Failed to fetch behavioral analysis:", error);
+      toast.error("Behavioral analysis temporarily unavailable");
+    } finally {
+      setIsAnalyzing(false);
+    }
   }, [lifePath, sliders]);
 
   const resetSimulation = () => {
@@ -88,6 +110,9 @@ export default function Index() {
     setResult(null);
     setActiveYear(0);
     setNarratives({ year5: '', year10: '', year30: '', finalReflection: '' });
+    setBehavioralAnalysis(null);
+    setIsAnalyzing(false);
+  };
   };
 
   const canSimulate = lifePath !== null;
@@ -184,6 +209,10 @@ export default function Index() {
               <div className="space-y-6">
                 <RegretMeter regret={result.regret} />
                 <OutcomeCards outcomes={result.outcomes} />
+                <BehavioralAnalysis 
+                  analysis={behavioralAnalysis} 
+                  isLoading={isAnalyzing} 
+                />
               </div>
 
               {/* Center Column - Narratives */}

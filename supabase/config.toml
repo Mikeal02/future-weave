@@ -1,0 +1,4 @@
+project_id = "adrvtmkdfsbdzryvdsic"
+
+[functions.behavioral-analysis]
+verify_jwt = false
