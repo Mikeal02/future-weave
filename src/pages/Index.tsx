@@ -113,7 +113,6 @@ export default function Index() {
     setBehavioralAnalysis(null);
     setIsAnalyzing(false);
   };
-  };
 
   const canSimulate = lifePath !== null;
 
