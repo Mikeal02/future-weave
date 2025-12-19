@@ -147,7 +147,7 @@ export default function Index() {
           /* Input Phase */
           <div className="max-w-4xl mx-auto space-y-8">
             {/* Life Path Selection */}
-            <section className="card-glass rounded-2xl p-6 md:p-8 animate-fade-in">
+            <section className="bg-section-alt rounded-2xl p-6 md:p-8 animate-fade-in border border-border/20">
               <LifePathSelector selected={lifePath} onSelect={setLifePath} />
             </section>
 
@@ -198,7 +198,7 @@ export default function Index() {
             </section>
 
             {/* Daily Micro Regret */}
-            <section className="max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: '0.1s' }}>
+            <section className="max-w-4xl mx-auto animate-fade-in bg-section-accent rounded-2xl p-4 border border-primary/10" style={{ animationDelay: '0.1s' }}>
               <DailyMicroRegret message={result.dailyMicroRegret} />
             </section>
 
@@ -206,7 +206,9 @@ export default function Index() {
             <div className="grid lg:grid-cols-3 gap-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
               {/* Left Column - Outcomes & Regret */}
               <div className="space-y-6">
-                <RegretMeter regret={result.regret} />
+                <div className="bg-section-alt rounded-2xl p-4 border border-border/20">
+                  <RegretMeter regret={result.regret} />
+                </div>
                 <OutcomeCards outcomes={result.outcomes} />
                 <BehavioralAnalysis 
                   analysis={behavioralAnalysis} 
@@ -255,7 +257,7 @@ export default function Index() {
                 />
 
                 {/* Shareable Card */}
-                <div className="card-glass rounded-2xl p-6">
+                <div className="bg-section-alt rounded-2xl p-6 border border-border/20">
                   <ShareableCard 
                     lifePath={lifePath!}
                     regretScore={result.regret.score}

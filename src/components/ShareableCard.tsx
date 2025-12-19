@@ -15,18 +15,38 @@ export function ShareableCard({ lifePath, regretScore, archetype, regretSentence
   const cardRef = useRef<HTMLDivElement>(null);
 
   const handleShare = async () => {
+    const shareText = `🔮 Future Regret Simulation\n\n${archetype}\n📊 ${regretScore}% Regret Score\n\n"${regretSentence}"\n\n🎯 ${lifePath.charAt(0).toUpperCase() + lifePath.slice(1)} Path\n\nSimulate your future: ${window.location.href}`;
+    
     if (navigator.share) {
       try {
         await navigator.share({
           title: 'My Future Regret Simulation',
-          text: `${archetype} | ${regretScore}% Regret | ${regretSentence}`,
-          url: window.location.href,
+          text: shareText,
         });
-      } catch (err) {
-        console.log('Share cancelled');
+        toast.success('Shared successfully!');
+      } catch (err: any) {
+        // User cancelled or share failed - try clipboard fallback
+        if (err.name !== 'AbortError') {
+          await copyToClipboard(shareText);
+        }
       }
     } else {
-      await navigator.clipboard.writeText(`${archetype} | ${regretScore}% Regret | ${regretSentence}`);
+      await copyToClipboard(shareText);
+    }
+  };
+
+  const copyToClipboard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      toast.success('Copied to clipboard!');
+    } catch (err) {
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
       toast.success('Copied to clipboard!');
     }
   };

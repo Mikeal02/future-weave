@@ -130,6 +130,19 @@
     box-shadow: 0 0 20px hsl(var(--accent) / 0.3);
   }
 
+  /* Section backgrounds for variety */
+  .bg-section-alt {
+    background: linear-gradient(180deg, hsl(0 0% 10%) 0%, hsl(var(--background)) 100%);
+  }
+
+  .bg-section-dark {
+    background: linear-gradient(180deg, hsl(220 10% 8%) 0%, hsl(var(--background)) 100%);
+  }
+
+  .bg-section-accent {
+    background: linear-gradient(135deg, hsl(var(--accent) / 0.08) 0%, hsl(var(--background)) 100%);
+  }
+
   .outcome-badge {
     @apply inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium;
   }
