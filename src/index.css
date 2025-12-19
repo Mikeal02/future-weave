@@ -98,9 +98,22 @@
     @apply bg-card border border-border rounded-lg;
   }
 
+  .card-glass {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50;
+  }
+
   .text-gradient-regret {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(135deg, hsl(14 76% 52%) 0%, hsl(24 90% 58%) 100%);
+  }
+
+  .noise-bg {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+
+  .glow-regret {
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.3);
   }
 
   .outcome-badge {
@@ -108,11 +121,11 @@
   }
 
   .outcome-critical {
-    @apply bg-critical/15 text-[hsl(var(--critical))];
+    @apply bg-critical/15 text-critical;
   }
 
   .outcome-unstable {
-    @apply bg-warning/15 text-[hsl(var(--warning))];
+    @apply bg-warning/15 text-warning;
   }
 
   .outcome-balanced {
@@ -120,11 +133,11 @@
   }
 
   .outcome-strong {
-    @apply bg-success/15 text-[hsl(var(--success))];
+    @apply bg-success/15 text-success;
   }
 
   .outcome-elite {
-    @apply bg-[hsl(var(--accent))]/15 text-[hsl(var(--accent))];
+    @apply bg-accent/15 text-accent;
   }
 }
 
@@ -133,19 +146,9 @@
     font-family: 'JetBrains Mono', monospace;
   }
 
-  .animate-fade-up {
-    animation: fadeUp 0.5s ease-out forwards;
-  }
-
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .font-display {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
   }
 
   .meter-fill {
