@@ -24,7 +24,23 @@ const sliderLabels: Record<keyof DecisionSliders, string> = {
 
 export function AlternateReality({ originalSliders, originalOutcomes, originalRegret, lifePath }: AlternateRealityProps) {
   const [selectedKey, setSelectedKey] = useState<keyof DecisionSliders>('careerFocus');
-  const [altValue, setAltValue] = useState(originalSliders[selectedKey]);
+  
+  // Initialize with a different value to show contrast immediately
+  const getInitialAltValue = (key: keyof DecisionSliders) => {
+    const original = originalSliders[key];
+    // Shift value by +/- 25 to show meaningful difference
+    if (original <= 50) {
+      return Math.min(100, original + 25);
+    }
+    return Math.max(0, original - 25);
+  };
+  
+  const [altValue, setAltValue] = useState(() => getInitialAltValue('careerFocus'));
+
+  const handleKeyChange = (key: keyof DecisionSliders) => {
+    setSelectedKey(key);
+    setAltValue(getInitialAltValue(key));
+  };
 
   const altSliders = { ...originalSliders, [selectedKey]: altValue };
   const altOutcomes = calculateOutcomes(lifePath, altSliders);
@@ -54,10 +70,7 @@ export function AlternateReality({ originalSliders, originalOutcomes, originalRe
           {(Object.keys(sliderLabels) as Array<keyof DecisionSliders>).map((key) => (
             <button
               key={key}
-              onClick={() => {
-                setSelectedKey(key);
-                setAltValue(originalSliders[key]);
-              }}
+              onClick={() => handleKeyChange(key)}
               className={cn(
                 "px-3 py-2 rounded-lg text-xs font-medium transition-all",
                 selectedKey === key 
