@@ -1,73 +1,179 @@
-# Welcome to your Lovable project
+# Future Weave
 
-## Project info
+Future Weave is a modern, interactive web application built with TypeScript, React, and Vite.  
+It’s designed to help users explore, visualize, or interact with future‑oriented data and features in a fast, responsive UI.
 
-**URL**: https://lovable.dev/projects/6a2ec712-ec7d-451d-acbe-c60336664cb1
+_(Add a short tagline about what the app actually does once you define it: e.g., “AI‑driven future insights dashboard” or “Interactive timeline for future predictions.”)_
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🚀 Project Summary
 
-**Use Lovable**
+Future Weave delivers:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6a2ec712-ec7d-451d-acbe-c60336664cb1) and start prompting.
+- A **fast frontend experience** using React + Vite  
+- **TypeScript‑driven codebase** for safety and scale  
+- Clean UI styled with Tailwind CSS  
+- Optional backend/features via Supabase (if applicable)
 
-Changes made via Lovable will be committed automatically to this repo.
+This project is ideal as a portfolio piece for frontend engineering, modern UI design, and TypeScript workflows.
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🛠 Tech Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+| Component | Technology |
+|-----------|------------|
+| Frontend | React |
+| Language | TypeScript |
+| Bundler | Vite |
+| Styling | Tailwind CSS |
+| Optional Backend | Supabase |
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🧠 How It Works
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+1. User opens the app in a browser.  
+2. UI renders data or interactive components based on the feature set.  
+3. User can interact with visual elements or inputs.  
+4. App responds instantly thanks to Vite’s fast refresh and optimized build.
 
-# Step 3: Install the necessary dependencies.
-npm i
+_(Add a short feature bullet list here once specifics are clear — e.g., “AI responses, graph visualizations, timeline interactions.”)_
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+---
+## 📁 Project Structure
+---
+```bash
+📦 future‑weave
+├── public/ # Static files and assets
+│ └── images/ # Images referenced in README or UI
+├── src/ # App source code
+│ ├── components/ # UI components
+│ ├── pages/ # Route pages or views
+│ └── styles/ # CSS/Tailwind configurations
+├── supabase/ # Optional backend scripts & configs
+├── index.html # Entry HTML
+├── package.json # Project metadata & scripts
+├── tsconfig.json # TypeScript configuration
+├── tailwind.config.ts # Tailwind configuration
+└── vite.config.ts # Vite config
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🖼️ Visuals & Screenshots
 
-**Use GitHub Codespaces**
+> Add visuals inside `public/images/` with the following files.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### 1️⃣ App Home / Landing Screen
 
-## What technologies are used for this project?
+**File:**  
 
-This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+public/images/home.png
 
-## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/6a2ec712-ec7d-451d-acbe-c60336664cb1) and click on Share -> Publish.
+**What to add:**  
+Screenshot of the initial app view after load — show navbar, main content, and user controls.
 
-## Can I connect a custom domain to my Lovable project?
+```markdown
+![Home Screen](public/images/home.png)
 
-Yes, you can!
+2️⃣ Core Feature Screen
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+File:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+public/images/core-feature.png
+
+
+What to add:
+Screenshot of the main interaction — feature results, graphs, or AI outputs.
+
+![Core Feature](public/images/core-feature.png)
+
+3️⃣ Optional Animated Demo
+
+File:
+
+public/images/demo.gif
+
+
+What to add:
+Short GIF demonstrating a key workflow (e.g., user interaction → result update).
+
+![Demo](public/images/demo.gif)
+```
+
+🧪 Installation & Setup
+---
+Prerequisites
+
+Node.js v16 or higher
+
+npm or yarn
+
+(Optional) Supabase project & keys
+
+Steps
+
+1. Clone the repository
+```bash
+git clone https://github.com/Mikeal02/future-weave.git
+cd future-weave
+```
+
+2. Install dependencies
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Configure Environment Variables
+```bash
+Create a .env file in the root directory:
+
+VITE_API_KEY=your_api_key_here
+# Add any Supabase or API keys here if needed
+```
+
+4. Run locally
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+5. Open in browser
+```bash
+http://localhost:5173
+```
+
+📦 Build for Production
+```bash
+npm run build
+# or
+yarn build
+```
+
+This generates an optimized production build in the dist/ folder.
+
+🤝 Contributing
+
+Contributions are welcome! To contribute:
+
+Fork the repository
+
+Create your feature branch
+
+Commit changes with clear messages
+
+Open a Pull Request
+
+📄 License
+
+This project is licensed under the MIT License. See LICENSE for details.
+
+
+
