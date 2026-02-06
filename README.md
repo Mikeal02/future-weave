@@ -3,7 +3,9 @@
 Future Weave is a modern, interactive web application built with TypeScript, React, and Vite.  
 It’s designed to help users explore, visualize, or interact with future‑oriented data and features in a fast, responsive UI.
 
-_(Add a short tagline about what the app actually does once you define it: e.g., “AI‑driven future insights dashboard” or “Interactive timeline for future predictions.”)_
+It's AI-driven future insight dashboard and sugggests interactive timeline for future prediction.
+
+
 
 ---
 
@@ -62,56 +64,14 @@ _(Add a short feature bullet list here once specifics are clear — e.g., “AI 
 
 ---
 
-## 🖼️ Visuals & Screenshots
-
-> Add visuals inside `public/images/` with the following files.
-
-### 1️⃣ App Home / Landing Screen
-
-**File:**  
-
-
-public/images/home.png
-
-
-**What to add:**  
-Screenshot of the initial app view after load — show navbar, main content, and user controls.
-
-```markdown
-![Home Screen](public/images/home.png)
-
-2️⃣ Core Feature Screen
-
-File:
-
-public/images/core-feature.png
-
-
-What to add:
-Screenshot of the main interaction — feature results, graphs, or AI outputs.
-
-![Core Feature](public/images/core-feature.png)
-
-3️⃣ Optional Animated Demo
-
-File:
-
-public/images/demo.gif
-
-
-What to add:
-Short GIF demonstrating a key workflow (e.g., user interaction → result update).
-
-![Demo](public/images/demo.gif)
-```
 
 🧪 Installation & Setup
 ---
 Prerequisites
 
-Node.js v16 or higher
+- Node.js v16 or higher
 
-npm or yarn
+- npm or yarn
 
 (Optional) Supabase project & keys
 
@@ -149,8 +109,9 @@ yarn dev
 ```bash
 http://localhost:5173
 ```
+---
 
-📦 Build for Production
+### 📦 Build for Production
 ```bash
 npm run build
 # or
@@ -158,20 +119,23 @@ yarn build
 ```
 
 This generates an optimized production build in the dist/ folder.
+---
 
-🤝 Contributing
+## 🤝 Contributing
 
 Contributions are welcome! To contribute:
 
-Fork the repository
+1.Fork the repository
 
-Create your feature branch
+2.Create your feature branch
 
-Commit changes with clear messages
+3.Commit changes with clear messages
 
-Open a Pull Request
+4.Open a Pull Request.
 
-📄 License
+---
+
+## 📄 License
 
 This project is licensed under the MIT License. See LICENSE for details.
 
