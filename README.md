@@ -1,4 +1,4 @@
-# Future Weave
+# ⏳ Future Weaver
 
 Future Weave is a modern, interactive web application built with TypeScript, React, and Vite.  
 It’s designed to help users explore, visualize, or interact with future‑oriented data and features in a fast, responsive UI.
